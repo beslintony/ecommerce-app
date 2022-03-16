@@ -1,0 +1,65 @@
+version: "3.4"
+
+x-common-variables: &common-variables
+    MYSQL_USER: user
+    MYSQL_PASSWORD: password
+    MYSQL_DATABASE: ecommerce_web
+    MYSQL_PORT: 9906
+    DB_HOST: host.docker.internal
+    PRODUCT_IMAGES_STORAGE: public/storage/product_images
+    PROFILE_STORAGE: public/storage/profile_images
+
+services:
+    mysql-db:
+        image: mysql:latest
+        container_name: team1c-mysql
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            <<: *common-variables
+            MYSQL_HOST: localhost
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - 9906:3306
+        restart: unless-stopped
+        volumes:
+            - ./db/ecommerce_web.sql:/docker-entrypoint-initdb.d/ecommerce_web.sql
+    phpmyadmin:
+        depends_on:
+            - mysql-db
+        image: phpmyadmin/phpmyadmin
+        container_name: team1c-phpadmin
+        environment:
+            PMA_HOST: mysql-db
+        links:
+            - mysql-db:mysql-db
+        ports:
+            - 8080:80
+        restart: always
+    server:
+        build: ./server
+        container_name: team1c-server
+        depends_on:
+            - mysql-db
+        environment:
+            <<: *common-variables
+            MYSQL_HOST_IP: mysql-db
+        ports:
+            - 3001:3001
+        volumes:
+            - /app/node_modules
+            - ./server:/app
+        links:
+            - mysql-db
+    client:
+        stdin_open: true
+        build: ./client
+        container_name: team1c-client
+        environment:
+            - CHOKIDAR_USEPOLLING=true
+        ports:
+            - 3000:3000
+        volumes:
+            - /app/node_modules
+            - ./client:/app
+        links:
+            - server

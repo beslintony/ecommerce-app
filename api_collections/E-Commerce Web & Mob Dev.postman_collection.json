@@ -1,0 +1,660 @@
+{
+	"info": {
+		"_postman_id": "069d348e-7bac-477d-86f9-d607c9ba4ab4",
+		"name": "E-Commerce Web & Mob Dev",
+		"description": "E-Commerce Web & Mobile Development Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"kylerstark@ai.hs-fulda.de\",\r\n    \"password\":\"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get User Profile Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imt5bGVyc3RhcmtAZXhhbXBsZS5jb20iLCJpZCI6MiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY0Mjc5MjI4NCwiZXhwIjoxNjQyODc4Njg0fQ.6IIm3Yp_XnmgEZ3VfEKVO_CRBAShnDlPBoMudcwEmOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/user_profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user_profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single user details by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/user/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5kb2VAYWkuaHMtZnVsZGEuZGUiLCJpZCI6MSwiaXNCdXllciI6dHJ1ZSwiaXNTZWxsZXIiOnRydWUsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NTU0MTczNiwiZXhwIjoxNjQ1NjI4MTM2fQ.GiHngeO35XtEmaP_rb91XvCJycUKa0a39DOnp7i_HA8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/users?search=johnnyd@informatik.hs-fulda.de",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "johnnyd@informatik.hs-fulda.de"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imt5bGVyc3RhcmtAZXhhbXBsZS5jb20iLCJpZCI6MiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY0MjA3NTYwNCwiZXhwIjoxNjQyMTYyMDA0fQ.tWL1qL1oOwnBygRsTyU19K_WhzKQrKzD3uTIqtCF0-Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"UpdatedFirstNamex\",\r\n        \"lastName\": \"UpdateLastNamey\",\r\n        \"gender\": 1,\r\n        \"dateOfBirth\": \"1981-08-31\",\r\n        \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/user-update/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user-update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NDA2Mjk4NDEsImV4cCI6MTY0MDcxNjI0MX0.ixWz-XBVp6hd2uT4MV0ycFURwT5YiRAqdP6isYN8PHQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/users/yes39@example.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users",
+								"yes39@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign Up - User Create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"Johnny\",\r\n        \"lastName\": \"Doh\",\r\n        \"email\": \"yes39@example.com\",\r\n        \"password\": \"password\",\r\n        \"dateOfBirth\": \"08/05/1995\",\r\n        \"gender\": 1,\r\n        \"isBuyer\": true,\r\n        \"isSeller\": false,\r\n        \"isAdmin\": false,\r\n        \"status\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Profile Image Upload",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imt5bGVyc3RhcmtAYWkuaHMtZnVsZGEuZGUiLCJpZCI6MiwiaXNCdXllciI6dHJ1ZSwiaXNTZWxsZXIiOnRydWUsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDM0NjcyOTEsImV4cCI6MTY0MzU1MzY5MX0.oDI1oIQ2z8yrbuMDCx9ZbjoWsI6FqRL2NWzalvJpB-8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/E:/Wallpapers/1.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/postProfileImage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"postProfileImage"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/products?price_min=1.99&price_max=10&product_name=Juices Cool",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "price_min",
+									"value": "1.99"
+								},
+								{
+									"key": "price_max",
+									"value": "10"
+								},
+								{
+									"key": "product_name",
+									"value": "Juices Cool"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/product/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"product",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Post with Images",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imt5bGVyc3RhcmtAYWkuaHMtZnVsZGEuZGUiLCJpZCI6MiwiaXNCdXllciI6dHJ1ZSwiaXNTZWxsZXIiOnRydWUsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDM0NjcyOTEsImV4cCI6MTY0MzU1MzY5MX0.oDI1oIQ2z8yrbuMDCx9ZbjoWsI6FqRL2NWzalvJpB-8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"description": "Upload up to 12 images",
+									"type": "file",
+									"src": [
+										"/E:/Wallpapers/1 injections.jpg",
+										"/E:/Wallpapers/1.jpeg",
+										"/E:/Wallpapers/2.jpeg"
+									]
+								},
+								{
+									"key": "title",
+									"value": "Orange Juice Plain",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Winter Kick rio d'oro",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "0.99",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Juices",
+									"type": "text"
+								},
+								{
+									"key": "postcode",
+									"value": "36037",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Fulda",
+									"type": "text"
+								},
+								{
+									"key": "street",
+									"value": "Leipziger Straße",
+									"type": "text"
+								},
+								{
+									"key": "sellerName",
+									"value": "Damjan Tomic",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "01706786543",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Update - Seller",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imt5bGVyc3RhcmtAYWkuaHMtZnVsZGEuZGUiLCJpZCI6MiwiaXNCdXllciI6dHJ1ZSwiaXNTZWxsZXIiOnRydWUsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDI5NjA1MzAsImV4cCI6MTY0MzA0NjkzMH0.VQuM9luRk1DpOAcQA_5MDbxyi0p236TPcn2HM6vNImc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"title\": \"Orange Juice A\",\r\n        \"description\": \"Winter Kick rio d'oro B\",\r\n        \"price\": 1.99,\r\n        \"category\": \"Juices Cool\",\r\n        \"postcode\": 36039,\r\n        \"city\": \"Fulda\",\r\n        \"street\": \"Leipziger Straße\",\r\n        \"sellerName\": \"Damjan Tomic E\",\r\n        \"contact\": \"017067865434\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/product/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imt5bGVyc3RhcmtAYWkuaHMtZnVsZGEuZGUiLCJpZCI6MiwiaXNCdXllciI6dHJ1ZSwiaXNTZWxsZXIiOnRydWUsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDI5NjA1MzAsImV4cCI6MTY0MzA0NjkzMH0.VQuM9luRk1DpOAcQA_5MDbxyi0p236TPcn2HM6vNImc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/product/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Order Save",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imt5bGVyc3RhcmtAYWkuaHMtZnVsZGEuZGUiLCJpZCI6MiwiaXNCdXllciI6dHJ1ZSwiaXNTZWxsZXIiOnRydWUsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDQwNzEyMzEsImV4cCI6MTY0NDE1NzYzMX0.p5JFx596LBTpoIAgQf0JZWGnlds3slRNb_8pJ2YuN08",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"buyerId\": 2,\n    \"totalPrice\": 10.94,\n    \"products\": [\n        {\n            \"productId\": 1,\n            \"seller_id\": 2,\n            \"quantity\": 5,\n            \"oneUnitPrice\": 1.99,\n            \"totalPrice\": 9.95\n        },\n        {\n            \"productId\": 2,\n            \"seller_id\": 2,\n            \"quantity\": 1,\n            \"oneUnitPrice\": 0.99,\n            \"totalPrice\": 0.99\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SellerAnalysis",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imt5bGVyc3RhcmtAYWkuaHMtZnVsZGEuZGUiLCJpZCI6MiwiaXNCdXllciI6dHJ1ZSwiaXNTZWxsZXIiOnRydWUsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDQwNzEyMzEsImV4cCI6MTY0NDE1NzYzMX0.p5JFx596LBTpoIAgQf0JZWGnlds3slRNb_8pJ2YuN08",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/analysis/seller/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"analysis",
+								"seller",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuyerAnalysis",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imt5bGVyc3RhcmtAYWkuaHMtZnVsZGEuZGUiLCJpZCI6MiwiaXNCdXllciI6dHJ1ZSwiaXNTZWxsZXIiOnRydWUsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDQwNzEyMzEsImV4cCI6MTY0NDE1NzYzMX0.p5JFx596LBTpoIAgQf0JZWGnlds3slRNb_8pJ2YuN08",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/analysis/buyer/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"analysis",
+								"buyer",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SellerProducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imt5bGVyc3RhcmtAYWkuaHMtZnVsZGEuZGUiLCJpZCI6MiwiaXNCdXllciI6dHJ1ZSwiaXNTZWxsZXIiOnRydWUsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDQwNzEyMzEsImV4cCI6MTY0NDE1NzYzMX0.p5JFx596LBTpoIAgQf0JZWGnlds3slRNb_8pJ2YuN08",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/analysis/products/seller/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"analysis",
+								"products",
+								"seller",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
